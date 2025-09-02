@@ -1,0 +1,20 @@
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.events-nav {
+  display: flex;
+  border-bottom: 2px groove white;
+}
+
+.events-nav a {
+  margin: 20px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+}
+
+.events-nav a:hover {
+  text-decoration: underline; /*temp*/
+}
