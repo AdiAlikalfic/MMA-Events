@@ -1,0 +1,9 @@
+<div class="main-wrapper">
+  <div class="images" *ngFor="let fight of event?.fights">
+    <img
+      [src]="fight.fighterA.picture"
+      alt="{{ fight.fighterA.name }}"
+      width="80"
+    />
+  </div>
+</div>

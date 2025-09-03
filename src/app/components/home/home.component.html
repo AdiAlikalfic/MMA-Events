@@ -1,5 +1,9 @@
 <div class="main-wrapper">
   <div class="events-nav" *ngFor="let event of events">
-    <a [href]="event.link" target="_blank">{{ event.title }}</a>
+    <a [routerLink]="['/event', event.title]" class="title-slide"
+      ><span>{{ event.title }}</span></a
+    >
   </div>
 </div>
+<!-- This needs to be a nav component -->
+<!-- Home component needs to hold: Nav, Event details and Footer -->

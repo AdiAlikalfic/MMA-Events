@@ -15,6 +15,20 @@
   color: white;
 }
 
-.events-nav a:hover {
-  text-decoration: underline; /*temp*/
+.title-slide {
+  display: inline-block;
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.title-slide span {
+  display: inline-block;
+  transform: translateX(0);
+  transition: transform 5s linear;
+}
+
+.title-slide:hover span {
+  transform: translateX(-100%);
 }
