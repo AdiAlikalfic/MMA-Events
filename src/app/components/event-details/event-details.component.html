@@ -1,9 +1,49 @@
 <div class="main-wrapper">
-  <div class="images" *ngFor="let fight of event?.fights">
-    <img
-      [src]="fight.fighterA.picture"
-      alt="{{ fight.fighterA.name }}"
-      width="80"
-    />
+  <div class="fighter-row" *ngFor="let fight of event?.fights">
+    <!-- Fighter A image -->
+    <div class="fighter-img">
+      <img
+        [src]="fight.fighterA.picture"
+        alt="{{ fight.fighterA.name }}"
+        width="200"
+      />
+    </div>
+
+    <!-- Tale of the tape -->
+
+    <div class="tale-of-the-tape">
+      <h2>{{ event?.title }}</h2>
+      <h3 *ngIf="fight.main">Main Event</h3>
+      <p>Weight Class: {{ fight.weight }}</p>
+
+      <div class="tape-columns">
+        <!-- Fighter A info -->
+        <div class="fighter-col">
+          <p class="name">{{ fight.fighterA.name }}</p>
+          <p class="record">{{ fight.fighterA.record }}</p>
+          <img [src]="fight.fighterA.country" alt="country" />
+          <p><a [href]="fight.fighterA.link" target="_blank">Tapology</a></p>
+        </div>
+
+        <!-- Fighter B info -->
+
+        <div class="fighter-col">
+          <p class="name">{{ fight.fighterB.name }}</p>
+          <p class="record">{{ fight.fighterB.record }}</p>
+          <img [src]="fight.fighterB.country" alt="country" />
+          <p><a [href]="fight.fighterB.link" target="_blank">Tapology</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fighter B image -->
+
+    <div class="fighter-img">
+      <img
+        [src]="fight.fighterB.picture"
+        alt="{{ fight.fighterB.name }}"
+        width="200"
+      />
+    </div>
   </div>
 </div>
