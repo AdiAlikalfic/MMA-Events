@@ -3,6 +3,7 @@ import { IFightData } from '../../models/IFightData';
 import { DataService } from '../../services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { response } from 'express';
 
 @Component({
   selector: 'app-event-details',
@@ -17,15 +18,19 @@ export class EventDetailsComponent {
   constructor(private dataService: DataService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    const title = this.route.snapshot.paramMap.get('title');
-
-    if (!title) return;
-
-    this.dataService.displayAllData().subscribe({
-      next: (res: any) => {
-        this.event = res.data.find((e: IFightData) => e.title === title)
-      },
-      error: (err) => console.error(err)
+    this.route.paramMap.subscribe(params => {
+      const title = params.get('title');
+      if (title) {
+        this.loadEvent(title)
+      }
     })
+ }
+
+ private loadEvent(title: string) {
+  this.dataService.displayAllData().subscribe({
+    next: (response: any) => {
+      this.event = response.data.find((e: IFightData) => e.title === title)
+    }
+  })
  }
 }
