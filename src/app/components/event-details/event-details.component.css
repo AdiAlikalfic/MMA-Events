@@ -75,3 +75,13 @@
 .fighter-col a:hover {
   text-decoration: underline;
 }
+
+.fighter-col .name {
+  height: 50px;
+}
+
+.tale-of-the-tape .prelims {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: white;
+}

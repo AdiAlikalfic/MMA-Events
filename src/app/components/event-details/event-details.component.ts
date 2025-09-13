@@ -3,7 +3,8 @@ import { IFightData } from '../../models/IFightData';
 import { DataService } from '../../services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { response } from 'express';
+import { OddsService } from '../../services/odds.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-event-details',
@@ -15,13 +16,14 @@ import { response } from 'express';
 export class EventDetailsComponent {
   event?: IFightData
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {}
+  constructor(private dataService: DataService,private oddsService: OddsService , private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const title = params.get('title');
       if (title) {
         this.loadEvent(title)
+        this.loadOdds()
       }
     })
  }
@@ -30,6 +32,15 @@ export class EventDetailsComponent {
   this.dataService.displayAllData().subscribe({
     next: (response: any) => {
       this.event = response.data.find((e: IFightData) => e.title === title)
+    }
+  })
+ }
+
+ private loadOdds() {
+  this.oddsService.displayOddsData().subscribe({
+    next: (response: any) => {
+      console.log('Complete odds: ', response);
+      
     }
   })
  }

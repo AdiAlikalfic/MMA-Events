@@ -13,7 +13,10 @@
 
     <div class="tale-of-the-tape">
       <h2>{{ event?.title }}</h2>
-      <h3 *ngIf="fight.main">Main Event</h3>
+      <h3 *ngIf="fight.main; else prelims">Main Event</h3>
+      <ng-template #prelims>
+        <h3 class="prelims">Prelims</h3>
+      </ng-template>
       <p>Weight Class: {{ fight.weight }}</p>
 
       <div class="tape-columns">
