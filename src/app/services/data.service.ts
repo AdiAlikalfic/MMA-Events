@@ -10,7 +10,7 @@ export class DataService {
 
   constructor(private httpClient: HttpClient) { }
 
-  displayAllData(): Observable <IFightData[]> {
-    return this.httpClient.get<IFightData[]>("https://mma-fights-api-production.up.railway.app/")
+  displayAllData(): Observable <{data: IFightData[]; updatedAt: string}> {
+    return this.httpClient.get<{data: IFightData[]; updatedAt: string}>("https://mma-fights-api-production.up.railway.app/")
   }
 }

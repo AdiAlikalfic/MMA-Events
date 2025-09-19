@@ -1,3 +1,5 @@
+import { IOddsData } from "./IOddsData";
+
 export interface IFigher {
   name: string;
   record: string;
@@ -18,4 +20,10 @@ export interface IFightData {
   date: string;
   link: string;
   fights: IFight[];
+}
+
+export interface IFightWithOdds extends IFightData {
+  fights: (IFight & {
+    odds?: {home: number; away: number} | null
+  })[];
 }

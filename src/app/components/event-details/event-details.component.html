@@ -7,6 +7,11 @@
         alt="{{ fight.fighterA.name }}"
         width="200"
       />
+      <!-- Fighter Odds -->
+
+      <div class="fighter-odds" *ngIf="fight.odds">
+        <p class="odds">Odds: {{ fight.odds.home }}</p>
+      </div>
     </div>
 
     <!-- Tale of the tape -->
@@ -47,6 +52,11 @@
         alt="{{ fight.fighterB.name }}"
         width="200"
       />
+      <!-- Fighter Odds -->
+
+      <div class="fighter-odds" *ngIf="fight.odds">
+        <p class="odds">Odds: {{ fight.odds.away }}</p>
+      </div>
     </div>
   </div>
 </div>
